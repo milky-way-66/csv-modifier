@@ -1,0 +1,28 @@
+{
+  "sheets": [
+    {
+      "id": 1,
+      "title": "sheet title",
+      "filter": {
+        "minutes": [
+          {
+            "start": 0,
+            "end": 10
+          }
+        ],
+        "ids": [
+          {
+            "start": 30,
+            "end": 50
+          }
+        ]
+      },
+      "modified_rows": [
+        {
+          "id": 2,
+          "content": "new value"
+        }
+      ]
+    }
+  ]
+}

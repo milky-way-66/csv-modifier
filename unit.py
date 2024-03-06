@@ -1,10 +1,13 @@
-from modifier import CsvModifier
+from fileModifier import FileModifierFactory, Filter
 import json
 
-fileJson = open("form-data.json")
+fileJson = open("storage/json/data-fromat.json")
 jsonData = json.load(fileJson)
 
-filterData = CsvModifier.Filter.parseFromJson(jsonData=jsonData["sheet_filter"][0])
+modifiedRows = jsonData["sheets"][0]["modified_rows"]
+filterData = Filter.parseFromJson(jsonData=jsonData["sheets"][0]["filter"])
 
-modifier = CsvModifier("./csv/file1.csv", filterData)
-modifier.modify()
+modifier = FileModifierFactory.createModifier("csv","storage/csv/file1.csv", filterData, modifiedRows)
+result = modifier.modify()
+
+print(result)
